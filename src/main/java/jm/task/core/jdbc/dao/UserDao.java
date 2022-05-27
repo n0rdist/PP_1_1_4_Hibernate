@@ -2,12 +2,13 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 public interface UserDao {
-    void createUsersTable();
+    void createUsersTable() throws SQLSyntaxErrorException;
 
-    void dropUsersTable();
+    void dropUsersTable() throws SQLSyntaxErrorException;
 
     void saveUser(String name, String lastName, byte age);
 

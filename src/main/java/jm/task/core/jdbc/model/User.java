@@ -1,5 +1,7 @@
 package jm.task.core.jdbc.model;
 
+import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -56,7 +58,11 @@ public class User {
         return age;
     }
 
-    public void setAge(Byte age) {
-        this.age = age;
+    public void setAge(Byte age) { this.age = age; }
+
+    public String toString() {
+        return (getName() + " " + getLastName() + " " + getAge());
     }
+
+
 }
