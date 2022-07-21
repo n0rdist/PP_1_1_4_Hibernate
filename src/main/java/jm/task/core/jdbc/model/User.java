@@ -1,14 +1,14 @@
 package jm.task.core.jdbc.model;
 
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+import javax.persistence.*;
+import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Table
-public class User {
+@Entity
+@Table(name="users",schema = "preproject1")
+public class User implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column
@@ -61,7 +61,7 @@ public class User {
     public void setAge(Byte age) { this.age = age; }
 
     public String toString() {
-        return (getName() + " " + getLastName() + " " + getAge());
+        return "id: " + id + "Name: " + name + " " + lastName + " age: " + age;
     }
 
 
